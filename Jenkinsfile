@@ -1,16 +1,27 @@
 pipeline {
    agent any
+   tools {
+       maven 'Maven3'
+       jdk 'JDK17'
+   }
    stages {
        stage('Checkout') {
            steps {
                git branch: 'main', url: 'https://github.com/Harishebsco/hello-maven.git'
            }
        }
-       stage('Echo') {
+       stage('Build') {
            steps {
-               echo "✅ Checked out successfully!"
+               sh 'mvn clean compile'
            }
        }
    }
+   post {
+       success {
+           echo "✅ Build successful!"
+       }
+       failure {
+           echo "❌ Build failed."
+       }
+   }
 }
- 
