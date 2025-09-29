@@ -6,8 +6,8 @@ tools {
    }
     
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')  // Jenkins creds ID
-        IMAGE_NAME = "harishjangili/myapp"
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds1')  // Jenkins creds ID
+        IMAGE_NAME = "harishjangili/java-app"
         IMAGE_TAG = "v1.0.${BUILD_NUMBER}"
     }
 
